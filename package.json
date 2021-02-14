@@ -1,27 +1,44 @@
 {
   "name": "nuco-cli",
-  "version": "0.0.1",
-  "description": "nuco团队项目生成工具",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "1.0.0",
+  "main": "dist/index.js",
   "bin": {
-    "nuco": "./lib/nuco.js"
+    "nuco": "dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NucoTech/nuco-cli.git"
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "yarn build:prod && yarn build:types",
+    "build:prod": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly"
   },
-  "author": "HerbertHe",
+  "repository": "https://github.com/NucoTech/nuco-cli.git",
+  "author": "HerbertHe <Herbert.He0229@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/NucoTech/nuco-cli/issues"
   },
-  "homepage": "https://github.com/NucoTech/nuco-cli#readme",
+  "keywords": [
+    "nuco",
+    "frontend"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-typescript": "^7.12.16",
+    "@rollup/plugin-babel": "^5.2.3",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "@rollup/pluginutils": "^4.1.0",
+    "cross-env": "^7.0.3",
+    "rollup": "^2.39.0",
+    "typescript": "^4.1.5"
+  },
   "dependencies": {
     "chalk": "^4.1.0",
-    "commander": "^6.2.0",
-    "inquirer": "^7.3.3",
-    "ora": "^5.1.0"
+    "commander": "^7.0.0",
+    "inquirer": "^7.3.3"
   }
 }
