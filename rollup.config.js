@@ -15,13 +15,13 @@ export default {
     plugins: [
         json(),
         // Allows node_modules resolution
-        resolve({ extensions }),
+        resolve({ extensions, preferBuiltins: true }),
 
         // Allow bundling cjs modules. Rollup doesn't understand cjs
         commonjs(),
 
         // Compile TypeScript/JavaScript files
-        babel({ extensions, include: ["src/**/*"] }),
+        babel({ extensions, include: ["src/**/*"], babelHelpers: "runtime" }),
     ],
 
     output: {
